@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sc-viaduct/static/css/main.47a6c2df.css",
-    "main.js": "/sc-viaduct/static/js/main.e4e0c934.js",
+    "main.css": "/sc-viaduct/static/css/main.0254dfa6.css",
+    "main.js": "/sc-viaduct/static/js/main.55f3f304.js",
     "static/js/22475.5bfe1107.chunk.js": "/sc-viaduct/static/js/22475.5bfe1107.chunk.js",
     "static/js/58497.10a7e444.chunk.js": "/sc-viaduct/static/js/58497.10a7e444.chunk.js",
     "static/js/65665.ef876920.chunk.js": "/sc-viaduct/static/js/65665.ef876920.chunk.js",
@@ -536,8 +536,8 @@
     "static/js/59031.57727a9b.chunk.js": "/sc-viaduct/static/js/59031.57727a9b.chunk.js",
     "static/js/37356.eab290c0.chunk.js": "/sc-viaduct/static/js/37356.eab290c0.chunk.js",
     "index.html": "/sc-viaduct/index.html",
-    "main.47a6c2df.css.map": "/sc-viaduct/static/css/main.47a6c2df.css.map",
-    "main.e4e0c934.js.map": "/sc-viaduct/static/js/main.e4e0c934.js.map",
+    "main.0254dfa6.css.map": "/sc-viaduct/static/css/main.0254dfa6.css.map",
+    "main.55f3f304.js.map": "/sc-viaduct/static/js/main.55f3f304.js.map",
     "22475.5bfe1107.chunk.js.map": "/sc-viaduct/static/js/22475.5bfe1107.chunk.js.map",
     "58497.10a7e444.chunk.js.map": "/sc-viaduct/static/js/58497.10a7e444.chunk.js.map",
     "65665.ef876920.chunk.js.map": "/sc-viaduct/static/js/65665.ef876920.chunk.js.map",
@@ -1010,7 +1010,7 @@
     "37356.eab290c0.chunk.js.map": "/sc-viaduct/static/js/37356.eab290c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.47a6c2df.css",
-    "static/js/main.e4e0c934.js"
+    "static/css/main.0254dfa6.css",
+    "static/js/main.55f3f304.js"
   ]
 }
