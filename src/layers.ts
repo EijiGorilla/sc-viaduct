@@ -232,9 +232,9 @@ export const launchingGirderLayer = new FeatureLayer({
 });
 
 // * Viaduct * //
-const colorViaduct = [
+const colorStatus = [
   [225, 225, 225, 0.1], // To be Constructed (white)
-  [130, 130, 130, 0.5], // Under Construction
+  [211, 211, 211, 0.5], // Under Construction
   [255, 0, 0, 0.8], // Delayed
   [0, 112, 255, 0.8], // Completed
 ];
@@ -249,7 +249,23 @@ const viaduct_renderer = new UniqueValueRenderer({
         symbolLayers: [
           new FillSymbol3DLayer({
             material: {
-              color: [225, 225, 225, 0.1],
+              color: colorStatus[0],
+              colorMixMode: "replace",
+            },
+            edges: new SolidEdges3D({
+              color: [225, 225, 225, 0.3],
+            }),
+          }),
+        ],
+      }),
+    },
+    {
+      value: 2,
+      symbol: new MeshSymbol3D({
+        symbolLayers: [
+          new FillSymbol3DLayer({
+            material: {
+              color: colorStatus[1],
               colorMixMode: "replace",
             },
             edges: new SolidEdges3D({
@@ -266,7 +282,7 @@ const viaduct_renderer = new UniqueValueRenderer({
         symbolLayers: [
           new FillSymbol3DLayer({
             material: {
-              color: [0, 112, 255, 0.8],
+              color: colorStatus[3],
               colorMixMode: "replace",
             },
             edges: new SolidEdges3D({

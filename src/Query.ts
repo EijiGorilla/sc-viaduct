@@ -92,9 +92,9 @@ export async function generateChartData(contractp: any) {
     statisticType: "sum",
   });
 
-  var total_boredpile_delay = new StatisticDefinition({
-    onStatisticField: "CASE WHEN (Type = 1 and Status = 3) THEN 1 ELSE 0 END",
-    outStatisticFieldName: "total_boredpile_delay",
+  var total_boredpile_ongoing = new StatisticDefinition({
+    onStatisticField: "CASE WHEN (Type = 1 and Status = 2) THEN 1 ELSE 0 END",
+    outStatisticFieldName: "total_boredpile_ongoing",
     statisticType: "sum",
   });
 
@@ -110,9 +110,9 @@ export async function generateChartData(contractp: any) {
     statisticType: "sum",
   });
 
-  var total_pilecap_delay = new StatisticDefinition({
-    onStatisticField: "CASE WHEN (Type = 2 and Status = 3) THEN 1 ELSE 0 END",
-    outStatisticFieldName: "total_pilecap_delay",
+  var total_pilecap_ongoing = new StatisticDefinition({
+    onStatisticField: "CASE WHEN (Type = 2 and Status = 2) THEN 1 ELSE 0 END",
+    outStatisticFieldName: "total_pilecap_ongoing",
     statisticType: "sum",
   });
 
@@ -128,9 +128,9 @@ export async function generateChartData(contractp: any) {
     statisticType: "sum",
   });
 
-  var total_pier_delay = new StatisticDefinition({
-    onStatisticField: "CASE WHEN (Type = 3 and Status = 3) THEN 1 ELSE 0 END",
-    outStatisticFieldName: "total_pier_delay",
+  var total_pier_ongoing = new StatisticDefinition({
+    onStatisticField: "CASE WHEN (Type = 3 and Status = 2) THEN 1 ELSE 0 END",
+    outStatisticFieldName: "total_pier_ongoing",
     statisticType: "sum",
   });
 
@@ -146,9 +146,9 @@ export async function generateChartData(contractp: any) {
     statisticType: "sum",
   });
 
-  var total_pierhead_delay = new StatisticDefinition({
-    onStatisticField: "CASE WHEN (Type = 4 and Status = 3) THEN 1 ELSE 0 END",
-    outStatisticFieldName: "total_pierhead_delay",
+  var total_pierhead_ongoing = new StatisticDefinition({
+    onStatisticField: "CASE WHEN (Type = 4 and Status = 2) THEN 1 ELSE 0 END",
+    outStatisticFieldName: "total_pierhead_ongoing",
     statisticType: "sum",
   });
 
@@ -164,9 +164,9 @@ export async function generateChartData(contractp: any) {
     statisticType: "sum",
   });
 
-  var total_precast_delay = new StatisticDefinition({
-    onStatisticField: "CASE WHEN (Type = 5 and Status = 3) THEN 1 ELSE 0 END",
-    outStatisticFieldName: "total_precast_delay",
+  var total_precast_ongoing = new StatisticDefinition({
+    onStatisticField: "CASE WHEN (Type = 5 and Status = 2) THEN 1 ELSE 0 END",
+    outStatisticFieldName: "total_precast_ongoing",
     statisticType: "sum",
   });
 
@@ -182,9 +182,9 @@ export async function generateChartData(contractp: any) {
     statisticType: "sum",
   });
 
-  var total_atgrade_delay = new StatisticDefinition({
-    onStatisticField: "CASE WHEN (Type = 7 and Status = 3) THEN 1 ELSE 0 END",
-    outStatisticFieldName: "total_atgrade_delay",
+  var total_atgrade_ongoing = new StatisticDefinition({
+    onStatisticField: "CASE WHEN (Type = 7 and Status = 2) THEN 1 ELSE 0 END",
+    outStatisticFieldName: "total_atgrade_ongoing",
     statisticType: "sum",
   });
 
@@ -193,21 +193,21 @@ export async function generateChartData(contractp: any) {
   query.outStatistics = [
     total_boredpile_incomp,
     total_boredpile_comp,
-    total_boredpile_delay,
+    total_boredpile_ongoing,
     total_pilecap_incomp,
-    total_pilecap_delay,
+    total_pilecap_ongoing,
     total_pilecap_comp,
     total_pier_incomp,
-    total_pier_delay,
+    total_pier_ongoing,
     total_pier_comp,
     total_pierhead_incomp,
-    total_pierhead_delay,
+    total_pierhead_ongoing,
     total_pierhead_comp,
     total_precast_incomp,
-    total_precast_delay,
+    total_precast_ongoing,
     total_precast_comp,
     total_atgrade_incomp,
-    total_atgrade_delay,
+    total_atgrade_ongoing,
     total_atgrade_comp,
   ];
 
@@ -227,22 +227,22 @@ export async function generateChartData(contractp: any) {
   return viaductLayer.queryFeatures(query).then((response: any) => {
     var stats = response.features[0].attributes;
     const pile_incomp = stats.total_boredpile_incomp;
-    const pile_delay = stats.total_boredpile_delay;
+    const pile_ongoing = stats.total_boredpile_ongoing;
     const pile_comp = stats.total_boredpile_comp;
     const pilecap_incomp = stats.total_pilecap_incomp;
-    const pilecap_delay = stats.total_pilecap_delay;
+    const pilecap_ongoing = stats.total_pilecap_ongoing;
     const pilecap_comp = stats.total_pilecap_comp;
     const pier_incomp = stats.total_pier_incomp;
-    const pier_delay = stats.total_pier_delay;
+    const pier_ongoing = stats.total_pier_ongoing;
     const pier_comp = stats.total_pier_comp;
     const pierhead_incomp = stats.total_pierhead_incomp;
-    const pierhead_delay = stats.total_pierhead_delay;
+    const pierhead_ongoing = stats.total_pierhead_ongoing;
     const pierhead_comp = stats.total_pierhead_comp;
     const precast_incomp = stats.total_precast_incomp;
-    const precast_delay = stats.total_precast_delay;
+    const precast_ongoing = stats.total_precast_ongoing;
     const precast_comp = stats.total_precast_comp;
     const atgrade_incomp = stats.total_atgrade_incomp;
-    const atgrade_delay = stats.total_atgrade_delay;
+    const atgrade_ongoing = stats.total_atgrade_ongoing;
     const atgrade_comp = stats.total_atgrade_comp;
 
     const data = [
@@ -250,42 +250,42 @@ export async function generateChartData(contractp: any) {
         category: viatypes[0].category,
         comp: pile_comp,
         incomp: pile_incomp,
-        delay: pile_delay,
+        ongoing: pile_ongoing,
         icon: "https://EijiGorilla.github.io/Symbols/Viaduct_Images/Viaduct_Pile_Logo.svg",
       },
       {
         category: viatypes[1].category,
         comp: pilecap_comp,
         incomp: pilecap_incomp,
-        delay: pilecap_delay,
+        ongoing: pilecap_ongoing,
         icon: "https://EijiGorilla.github.io/Symbols/Viaduct_Images/Viaduct_Pilecap_Logo.svg",
       },
       {
         category: viatypes[2].category,
         comp: pier_comp,
         incomp: pier_incomp,
-        delay: pier_delay,
+        ongoing: pier_ongoing,
         icon: "https://EijiGorilla.github.io/Symbols/Viaduct_Images/Viaduct_Pier_Logo.svg",
       },
       {
         category: viatypes[3].category,
         comp: pierhead_comp,
         incomp: pierhead_incomp,
-        delay: pierhead_delay,
+        ongoing: pierhead_ongoing,
         icon: "https://EijiGorilla.github.io/Symbols/Viaduct_Images/Viaduct_Pierhead_Logo.svg",
       },
       {
         category: viatypes[4].category,
         comp: precast_comp,
         incomp: precast_incomp,
-        delay: precast_delay,
+        ongoing: precast_ongoing,
         icon: "https://EijiGorilla.github.io/Symbols/Viaduct_Images/Viaduct_Precast_Logo.svg",
       },
       {
         category: viatypes[5].category,
         comp: atgrade_comp,
         incomp: atgrade_incomp,
-        delay: atgrade_delay,
+        ongoing: atgrade_ongoing,
         icon: "https://EijiGorilla.github.io/Symbols/Viaduct_Images/Viaduct_Precast_Logo.svg",
       },
     ];

@@ -106,7 +106,7 @@ const Chart = () => {
 
   const chartSeriesFillColorComp = "#0070ff";
   const chartSeriesFillColorIncomp = "#000000";
-  const chartSeriesFillColorDelay = "#FF0000"; // original: #FF0000
+  const chartSeriesFillColorOngoing = "#d3d3d3"; // orfiginal: #FF0000
   const chartBorderLineColor = "#00c5ff";
   const chartBorderLineWidth = 0.4;
 
@@ -246,13 +246,15 @@ const Chart = () => {
           fill:
             fieldName === "incomp"
               ? am5.color(chartSeriesFillColorIncomp)
+              : fieldName === "ongoing"
+              ? am5.color(chartSeriesFillColorOngoing)
               : am5.color(chartSeriesFillColorComp),
           stroke: am5.color(chartBorderLineColor),
         })
       );
 
       series.columns.template.setAll({
-        fillOpacity: fieldName === "comp" ? 1 : 0,
+        fillOpacity: fieldName === "comp" ? 1 : 0.5,
         tooltipText: "{name}: {valueX}", // "{categoryY}: {valueX}",
         tooltipY: am5.percent(90),
         strokeWidth: chartBorderLineWidth,
@@ -284,7 +286,8 @@ const Chart = () => {
         const categorySelect: string = selected.category;
         const find = types.find((emp: any) => emp.category === categorySelect);
         const typeSelect = find?.value;
-        const selectedStatus: number | null = fieldName === "comp" ? 4 : 1;
+        const selectedStatus: number | null =
+          fieldName === "comp" ? 4 : fieldName === "ongoing" ? 2 : 1;
 
         const expression =
           "CP = '" +
@@ -335,6 +338,7 @@ const Chart = () => {
     }
     makeSeries("Complete", "comp");
     makeSeries("Incomplete", "incomp");
+    makeSeries("Ongoing", "ongoing");
     // makeSeries('Delayed', 'delay');
     chart.appear(1000, 100);
 
