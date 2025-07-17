@@ -6,6 +6,12 @@ import {
 } from "./layers";
 import StatisticDefinition from "@arcgis/core/rest/support/StatisticDefinition";
 
+export const construction_status = [
+  "To be Constructed",
+  "Under Construction",
+  "Completed",
+];
+
 export const contractPackage = [
   "S-01",
   "S-02",

@@ -7,6 +7,7 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
 import "../App.css";
 import {
+  construction_status,
   generateChartData,
   generateTotalProgress,
   thousands_separators,
@@ -15,11 +16,7 @@ import {
 import "@esri/calcite-components/dist/components/calcite-label";
 import "@esri/calcite-components/dist/components/calcite-tabs";
 import "@esri/calcite-components/dist/components/calcite-panel";
-import {
-  CalciteLabel,
-  CalciteTabs,
-  CalcitePanel,
-} from "@esri/calcite-components-react";
+import { CalciteLabel, CalciteTabs } from "@esri/calcite-components-react";
 import { ArcgisScene } from "@arcgis/map-components/dist/components/arcgis-scene";
 import { MyContext } from "../App";
 
@@ -213,10 +210,9 @@ const Chart = () => {
       am5.Legend.new(root, {
         centerX: am5.p50,
         centerY: am5.percent(50),
-        x: am5.percent(60),
-        y: am5.percent(97),
+        x: am5.percent(50),
         marginTop: 20,
-        scale: 0.8,
+        scale: 0.75,
         layout: root.horizontalLayout,
       })
     );
@@ -227,6 +223,7 @@ const Chart = () => {
       fill: am5.color("#ffffff"),
       fontSize: legendFontSize,
       scale: 1.2,
+      marginRight: -50,
       //textDecoration: "underline"
       //width: am5.percent(600),
       //fontWeight: '300',
@@ -336,9 +333,9 @@ const Chart = () => {
       });
       legend.data.push(series);
     }
-    makeSeries("Complete", "comp");
-    makeSeries("Incomplete", "incomp");
-    makeSeries("Ongoing", "ongoing");
+    makeSeries(construction_status[2], "comp");
+    makeSeries(construction_status[0], "incomp");
+    makeSeries(construction_status[1], "ongoing");
     // makeSeries('Delayed', 'delay');
     chart.appear(1000, 100);
 
